@@ -82,12 +82,12 @@ export default function App() {
   const diemXetThuong = Math.min(max2_1 + max2_2 + max2_3 + max2_4 + max2_5 + max2_6, LIMITS.DIEM_XET_THUONG);
 
   // Group 3
-  const max3_1 = state.heDaoTao === 'tieu_chuan' ? 0 : state.ngoaiNgu;
+  const max3_1 = state.ngoaiNgu;
   const max3_2 = state.tinHocQuocTe ? 1.5 : 0;
   const max3_3 = state.sat;
   const max3_4 = state.act;
 
-  const diemKhuyenKhich = Math.min(max3_1 + max3_2 + max3_3 + max3_4, LIMITS.DIEM_KHUYEN_KHICH);
+  const diemKhuyenKhich = state.heDaoTao === 'tieu_chuan' ? 0 : Math.min(max3_1 + max3_2 + max3_3 + max3_4, LIMITS.DIEM_KHUYEN_KHICH);
 
   // Total
   const tongDiemCong = Math.min(diemThuong + diemXetThuong + diemKhuyenKhich, LIMITS.TONG_DIEM_CONG);
@@ -270,7 +270,7 @@ export default function App() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Hệ đào tạo đăng ký</label>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Loại hình đào tạo</label>
                       <select 
                         className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#005A9C] outline-none"
                         value={state.heDaoTao}
@@ -287,22 +287,29 @@ export default function App() {
                         <button onClick={() => setShowConversion(true)} className="text-[10px] text-[#005A9C] hover:underline flex items-center gap-0.5"><Info className="w-3 h-3"/> Quy đổi</button>
                       </div>
                       <select 
-                        className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#005A9C] outline-none disabled:bg-slate-100 disabled:text-slate-400"
-                        value={state.heDaoTao === 'tieu_chuan' ? 0 : state.ngoaiNgu}
+                        className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#005A9C] outline-none"
+                        value={state.ngoaiNgu}
                         onChange={(e) => handleStateChange('ngoaiNgu', parseFloat(e.target.value))}
-                        disabled={state.heDaoTao === 'tieu_chuan'}
                       >
                         <option value={0}>Không có</option>
                         <option value={1.0}>Bậc 3 (Ví dụ: IELTS 5.0 - 5.5) (+1.0 điểm)</option>
                         <option value={1.5}>Bậc 4 trở lên (Ví dụ: IELTS 6.0+) (+1.5 điểm)</option>
                       </select>
-                      {state.heDaoTao === 'tieu_chuan' && (
-                        <p className="text-[10px] text-red-500 mt-1">Hệ Tiêu chuẩn không được cộng điểm Ngoại ngữ.</p>
-                      )}
                     </div>
                   </div>
 
                 </div>
+
+                <div 
+                  className="rounded-lg px-3.5 py-2.5 flex items-start sm:items-center gap-2.5 text-[13px] sm:text-sm border shadow-sm"
+                  style={{ backgroundColor: COLORS.blueLight, borderColor: `${COLORS.blue}40`, color: COLORS.blue }}
+                >
+                  <Info className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 sm:mt-0" strokeWidth={2.5} />
+                  <div className="leading-snug">
+                    <span className="font-medium">Thông tin chi tiết các Phương thức xét tuyển, Loại hình đào tạo vui lòng xem <a href="https://due.udn.vn/vi-vn/tuvantuyensinh2026/gt/cid/5973" target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 hover:opacity-80 transition-opacity">tại đây</a>.</span>
+                  </div>
+                </div>
+
               </div>
             </div>
 

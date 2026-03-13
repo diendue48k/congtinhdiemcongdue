@@ -39,9 +39,9 @@ export const COMBINATIONS = [
 ];
 
 export const HE_DAO_TAO = [
-  { value: 'tieu_chuan', label: 'Tiêu chuẩn (Standard)' },
-  { value: 'toan_phan', label: 'Toàn phần (English Taught)' },
-  { value: 'ban_phan', label: 'Bán phần (Partial English Taught)' },
+  { value: 'toan_phan', label: 'Toàn phần tiếng Anh (gồm chương trình Elite)' },
+  { value: 'ban_phan', label: 'Bán phần tiếng Anh' },
+  { value: 'tieu_chuan', label: 'Tiêu chuẩn' },
 ];
 
 export const MON_THI_HSG = [
