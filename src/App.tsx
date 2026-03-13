@@ -300,15 +300,18 @@ export default function App() {
 
                 </div>
 
-                <div 
-                  className="rounded-lg px-3.5 py-2.5 flex items-start sm:items-center gap-2.5 text-[13px] sm:text-sm border shadow-sm"
+                <a 
+                  href="https://due.udn.vn/vi-vn/tuvantuyensinh2026/gt/cid/5973" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="rounded-lg px-3.5 py-2.5 flex items-start sm:items-center gap-2.5 text-[13px] sm:text-sm border shadow-sm hover:opacity-80 transition-opacity cursor-pointer block"
                   style={{ backgroundColor: COLORS.blueLight, borderColor: `${COLORS.blue}40`, color: COLORS.blue }}
                 >
                   <Info className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 sm:mt-0" strokeWidth={2.5} />
                   <div className="leading-snug">
-                    <span className="font-medium">Thông tin chi tiết các Phương thức xét tuyển, Loại hình đào tạo vui lòng xem <a href="https://due.udn.vn/vi-vn/tuvantuyensinh2026/gt/cid/5973" target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 hover:opacity-80 transition-opacity">tại đây</a>.</span>
+                    <span className="font-medium">Thông tin chi tiết các Phương thức xét tuyển, Loại hình đào tạo vui lòng xem <span className="font-bold underline underline-offset-2">tại đây</span>.</span>
                   </div>
-                </div>
+                </a>
 
               </div>
             </div>
