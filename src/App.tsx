@@ -98,14 +98,14 @@ export default function App() {
   };
 
   const CheckboxItem = ({ label, stateKey, colorClass }: { label: string, stateKey: keyof AppState, colorClass: string }) => (
-    <label className="flex items-start gap-3 cursor-pointer group py-2.5">
+    <label className="flex items-start gap-3 cursor-pointer group py-2">
       <input 
         type="checkbox" 
         className={`mt-0.5 shrink-0 w-5 h-5 rounded border-slate-300 ${colorClass}`} 
         checked={state[stateKey] as boolean} 
         onChange={(e) => handleStateChange(stateKey, e.target.checked)} 
       />
-      <span className="text-sm text-slate-700 group-hover:text-slate-900 transition-colors leading-snug">{label}</span>
+      <span className="text-[13px] sm:text-sm text-slate-700 group-hover:text-slate-900 transition-colors leading-snug">{label}</span>
     </label>
   );
 
@@ -113,7 +113,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-24">
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-center sm:justify-start gap-2 sm:gap-3">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-center sm:justify-start gap-2 sm:gap-3">
           <div className="font-bold text-xl sm:text-2xl tracking-tighter flex shrink-0">
             <span style={{ color: COLORS.orange }}>D</span>
             <span style={{ color: COLORS.green }}>U</span>
@@ -126,11 +126,11 @@ export default function App() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* Form Section */}
-          <div className="lg:col-span-8 space-y-6">
+          <div className="lg:col-span-8 xl:col-span-9 space-y-6">
             
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
               {/* Box Header */}
@@ -140,6 +140,17 @@ export default function App() {
               </div>
 
               <div className="p-6 space-y-8">
+
+                {/* CÁCH TÍNH */}
+                <div 
+                  className="rounded-lg px-3.5 py-2.5 flex items-start sm:items-center gap-2.5 text-[13px] sm:text-sm border shadow-sm"
+                  style={{ backgroundColor: COLORS.orangeLight, borderColor: `${COLORS.orange}40`, color: COLORS.orange }}
+                >
+                  <Info className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 sm:mt-0" strokeWidth={2.5} />
+                  <div className="leading-snug">
+                    <span className="font-bold uppercase tracking-wide">Cách tính:</span> <span className="font-medium">Điểm cộng = Điểm thưởng + Điểm xét thưởng + Điểm khuyến khích</span>
+                  </div>
+                </div>
 
                 {/* ĐIỂM THƯỞNG */}
                 <div>
@@ -177,16 +188,16 @@ export default function App() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Cột 1.5 điểm */}
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/30">
-                      <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1.5 điểm</h4>
+                      <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1,5 điểm cho mỗi thành tích sau</h4>
                       <div className="space-y-1">
-                        <CheckboxItem label="Đường lên đỉnh Olympia" stateKey="olympia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đã tham gia cuộc thi Đường lên đỉnh Olympia" stateKey="olympia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Giải Nhất/Nhì/Ba/Khuyến khích Quốc gia" stateKey="hsgQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Giải Nhất/Nhì/Ba Tỉnh/Thành phố" stateKey="hsgTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Giải Nhất/Nhì/Ba/Tư Khoa học kỹ thuật Quốc gia" stateKey="khktQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba Khoa học kỹ thuật Tỉnh" stateKey="khktTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Giải Nhất/Nhì/Ba Khoa học kỹ thuật cấp Tỉnh/Thành phố" stateKey="khktTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Học sinh Xuất sắc cả 3 năm" stateKey="hsXuatSac" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba Khởi nghiệp Bộ" stateKey="khoiNghiepNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba Tin học trẻ Toàn quốc" stateKey="tinHocTreNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Giải Nhất/Nhì/Ba cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” của Bộ GD&ĐT" stateKey="khoiNghiepNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Giải Nhất/Nhì/Ba Cuộc thi Tin học trẻ Toàn quốc" stateKey="tinHocTreNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Huy chương Vàng/Bạc/Đồng Olympic 30/4" stateKey="olympic" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Huy chương Thể thao (Cấp Tỉnh trở lên, 4 năm)" stateKey="theThao" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Giải Nhất/Nhì/Ba Startup Runway DUE" stateKey="startupDueNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
@@ -194,13 +205,13 @@ export default function App() {
                     </div>
                     {/* Cột 1.0 điểm */}
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/30">
-                      <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1.0 điểm</h4>
+                      <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1,0 điểm cho mỗi thành tích sau</h4>
                       <div className="space-y-1">
-                        <CheckboxItem label="Giải Khuyến khích cấp Tỉnh/Thành phố" stateKey="hsgKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Tư Khoa học kỹ thuật cấp Tỉnh" stateKey="khktKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Giải Khuyến khích kỳ thi Học sinh giỏi cấp Tỉnh/Thành phố" stateKey="hsgKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Giải Tư Khoa học kỹ thuật cấp Tỉnh/Thành phố" stateKey="khktKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Học sinh Giỏi 3 năm (hoặc Giỏi + Xuất sắc)" stateKey="hsGioi" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Khuyến khích Khởi nghiệp Bộ" stateKey="khoiNghiepKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Khuyến khích Tin học trẻ" stateKey="tinHocTreKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Giải Khuyến khích cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” của Bộ GD&ĐT" stateKey="khoiNghiepKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Giải Khuyến khích Cuộc thi Tin học trẻ" stateKey="tinHocTreKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                         <CheckboxItem label="Giải Khuyến khích Startup Runway DUE" stateKey="startupDueKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                       </div>
                     </div>
@@ -298,27 +309,27 @@ export default function App() {
           </div>
 
           {/* Result Sidebar */}
-          <div className="lg:col-span-4 hidden lg:block">
+          <div className="lg:col-span-4 xl:col-span-3 hidden lg:block">
             <div className="sticky top-24 space-y-6">
               <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
-                <div className="p-6 bg-slate-900 text-white text-center">
-                  <h2 className="text-sm font-medium text-slate-400 uppercase tracking-widest mb-2">Tổng Điểm Cộng</h2>
-                  <div className="text-6xl font-light tracking-tighter">
+                <div className="p-6 bg-gradient-to-br from-[#009A44] to-[#005A9C] text-white text-center">
+                  <h2 className="text-sm font-medium text-white uppercase tracking-widest mb-2">Điểm cộng</h2>
+                  <div className="text-6xl font-light tracking-tighter drop-shadow-sm">
                     {tongDiemCong.toFixed(2)}
                   </div>
-                  <div className="text-sm text-slate-400 mt-2">Tối đa 3.0 điểm</div>
+                  <div className="text-sm text-white mt-2">Tối đa 3.0 điểm</div>
                 </div>
                 <div className="p-6 space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-slate-100">
-                    <span className="text-sm text-slate-600 flex items-center gap-2"><div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS.orange }}></div> Nhóm 1 (Thưởng)</span>
+                    <span className="text-sm text-slate-600 flex items-center gap-2"><div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS.orange }}></div> Điểm thưởng</span>
                     <span className="font-semibold text-slate-900">{diemThuong.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between items-center pb-4 border-b border-slate-100">
-                    <span className="text-sm text-slate-600 flex items-center gap-2"><div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS.green }}></div> Nhóm 2 (Xét Thưởng)</span>
+                    <span className="text-sm text-slate-600 flex items-center gap-2"><div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS.green }}></div> Điểm xét thưởng</span>
                     <span className="font-semibold text-slate-900">{diemXetThuong.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-slate-600 flex items-center gap-2"><div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS.blue }}></div> Nhóm 3 (Khuyến Khích)</span>
+                    <span className="text-sm text-slate-600 flex items-center gap-2"><div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS.blue }}></div> Điểm khuyến khích</span>
                     <span className="font-semibold text-slate-900">{diemKhuyenKhich.toFixed(2)}</span>
                   </div>
                 </div>
@@ -339,13 +350,13 @@ export default function App() {
       </main>
 
       {/* Mobile Sticky Bottom Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-40 p-4 pb-safe">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-gradient-to-r from-[#009A44] to-[#005A9C] text-white shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.15)] z-40 p-4 pb-safe">
         <div className="flex items-center justify-between max-w-5xl mx-auto">
           <div>
-            <div className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-0.5">Tổng Điểm Cộng</div>
-            <div className="text-xs text-slate-400">Tối đa 3.0 điểm</div>
+            <div className="text-xs font-medium text-white uppercase tracking-wider mb-0.5">Điểm cộng</div>
+            <div className="text-xs text-white">Tối đa 3.0 điểm</div>
           </div>
-          <div className="text-3xl font-bold text-slate-900">
+          <div className="text-3xl font-bold text-white drop-shadow-sm">
             {tongDiemCong.toFixed(2)}
           </div>
         </div>
@@ -355,37 +366,62 @@ export default function App() {
       {showConversion && (
         <Modal title="Bảng Quy đổi Chứng chỉ Ngoại ngữ" onClose={() => setShowConversion(false)}>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left text-slate-700">
-              <thead className="text-xs text-slate-700 uppercase bg-slate-100">
+            <table className="w-full text-sm text-center text-slate-700 border-collapse">
+              <thead className="text-xs text-white uppercase bg-[#E87722]">
                 <tr>
-                  <th className="px-4 py-3 rounded-tl-lg">Loại Chứng chỉ</th>
-                  <th className="px-4 py-3">Bậc 3 (1.0 điểm)</th>
-                  <th className="px-4 py-3 rounded-tr-lg">Bậc 4+ (1.5 điểm)</th>
+                  <th rowSpan={2} className="px-2 py-3 border border-white/20 align-middle">KNLNN<br/>VN</th>
+                  <th rowSpan={2} className="px-2 py-3 border border-white/20 align-middle">IELTS<br/>Academic</th>
+                  <th rowSpan={2} className="px-2 py-3 border border-white/20 align-middle">TOEFL iBT<br/>(*)</th>
+                  <th rowSpan={2} className="px-2 py-3 border border-white/20 align-middle">TOEFL<br/>ITP</th>
+                  <th colSpan={4} className="px-2 py-2 border border-white/20 text-center">TOEIC</th>
+                  <th rowSpan={2} className="px-2 py-3 border border-white/20 align-middle">VSTEP</th>
+                </tr>
+                <tr>
+                  <th className="px-2 py-2 border border-white/20">Nghe</th>
+                  <th className="px-2 py-2 border border-white/20">Đọc</th>
+                  <th className="px-2 py-2 border border-white/20">Nói</th>
+                  <th className="px-2 py-2 border border-white/20">Viết</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-slate-100">
-                  <td className="px-4 py-3 font-medium">IELTS</td>
-                  <td className="px-4 py-3">5.0 - 5.5</td>
-                  <td className="px-4 py-3">6.0 trở lên</td>
+                <tr className="bg-[#E87722] text-white font-medium">
+                  <td className="px-2 py-3 border border-white/20">Bậc 3</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCD5B4] text-slate-800">4,0-5,0</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCD5B4] text-slate-800">30-45</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCD5B4] text-slate-800">450-499</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">275-<br/>395</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">275-<br/>380</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">120-<br/>150</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">120-<br/>140</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCD5B4] text-slate-800">4,0-5,5</td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="px-4 py-3 font-medium">TOEFL iBT</td>
-                  <td className="px-4 py-3">45 - 59</td>
-                  <td className="px-4 py-3">60 trở lên</td>
+                <tr className="bg-[#E87722] text-white font-medium">
+                  <td className="px-2 py-3 border border-white/20">Bậc 4</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCD5B4] text-slate-800">5,5-6,5</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCD5B4] text-slate-800">46-93</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCD5B4] text-slate-800">500-626</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">400-<br/>485</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">385-<br/>450</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">160-<br/>170</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">150-<br/>170</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCD5B4] text-slate-800">6,0-8,0</td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="px-4 py-3 font-medium">TOEIC (4 kỹ năng)</td>
-                  <td className="px-4 py-3">Nghe & Đọc: 450-595<br/>Nói & Viết: 200-245</td>
-                  <td className="px-4 py-3">Nghe & Đọc: 600+<br/>Nói & Viết: 250+</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3 font-medium">VSTEP</td>
-                  <td className="px-4 py-3">Bậc 3</td>
-                  <td className="px-4 py-3">Bậc 4, 5, 6</td>
+                <tr className="bg-[#E87722] text-white font-medium">
+                  <td className="px-2 py-3 border border-white/20">Từ Bậc 5</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">&ge; 7,0</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">&ge; 94</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">&ge; 627</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">&ge; 490</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">&ge; 455</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">&ge; 180</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">&ge; 180</td>
+                  <td className="px-2 py-3 border border-white/20 bg-[#FCE4D6] text-slate-800">&ge; 8,5</td>
                 </tr>
               </tbody>
             </table>
+            <div className="mt-3 text-[11px] text-slate-600 italic">
+              * Không chấp nhận phiên bản Home Edition. Các chứng chỉ tiếng Anh trong thời hạn 2 năm, tính đến ngày nộp hồ sơ ĐKXT.
+            </div>
           </div>
         </Modal>
       )}
