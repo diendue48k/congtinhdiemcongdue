@@ -82,12 +82,12 @@ export default function App() {
   const diemXetThuong = Math.min(max2_1 + max2_2 + max2_3 + max2_4 + max2_5 + max2_6, LIMITS.DIEM_XET_THUONG);
 
   // Group 3
-  const max3_1 = state.ngoaiNgu;
+  const max3_1 = state.heDaoTao === 'tieu_chuan' ? 0 : state.ngoaiNgu;
   const max3_2 = state.tinHocQuocTe ? 1.5 : 0;
   const max3_3 = state.sat;
   const max3_4 = state.act;
 
-  const diemKhuyenKhich = state.heDaoTao === 'tieu_chuan' ? 0 : Math.min(max3_1 + max3_2 + max3_3 + max3_4, LIMITS.DIEM_KHUYEN_KHICH);
+  const diemKhuyenKhich = Math.min(max3_1 + max3_2 + max3_3 + max3_4, LIMITS.DIEM_KHUYEN_KHICH);
 
   // Total
   const tongDiemCong = Math.min(diemThuong + diemXetThuong + diemKhuyenKhich, LIMITS.TONG_DIEM_CONG);
