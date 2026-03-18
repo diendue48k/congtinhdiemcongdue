@@ -51,6 +51,7 @@ export default function App() {
     olympic: false,
     theThao: false,
     startupDueNhatNhiBa: false,
+    hsgDuyenHai: false,
     hsgKkTinh: false,
     khktKkTinh: false,
     hsGioi: false,
@@ -73,7 +74,7 @@ export default function App() {
 
   // Group 2
   const max2_1 = state.hsXuatSac ? 1.5 : (state.hsGioi ? 1.0 : 0);
-  const max2_2 = (state.hsgQuocGia || state.hsgTinh || state.olympic) ? 1.5 : (state.hsgKkTinh ? 1.0 : 0);
+  const max2_2 = (state.hsgQuocGia || state.hsgTinh || state.olympic || state.hsgDuyenHai) ? 1.5 : (state.hsgKkTinh ? 1.0 : 0);
   const max2_3 = (state.khktQuocGia || state.khktTinh) ? 1.5 : (state.khktKkTinh ? 1.0 : 0);
   const max2_4 = (state.khoiNghiepNhatNhiBa || state.tinHocTreNhatNhiBa || state.startupDueNhatNhiBa) ? 1.5 : ((state.khoiNghiepKk || state.tinHocTreKk || state.startupDueKk) ? 1.0 : 0);
   const max2_5 = state.theThao ? 1.5 : 0;
@@ -190,29 +191,28 @@ export default function App() {
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/30">
                       <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1,5 điểm cho mỗi thành tích sau</h4>
                       <div className="space-y-1">
-                        <CheckboxItem label="Thí sinh đã tham gia cuộc thi Đường lên đỉnh Olympia" stateKey="olympia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba/Khuyến khích Quốc gia" stateKey="hsgQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba Tỉnh/Thành phố" stateKey="hsgTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba/Tư Khoa học kỹ thuật Quốc gia" stateKey="khktQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba Khoa học kỹ thuật cấp Tỉnh/Thành phố" stateKey="khktTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Học sinh Xuất sắc cả 3 năm" stateKey="hsXuatSac" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” của Bộ GD&ĐT" stateKey="khoiNghiepNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba Cuộc thi Tin học trẻ Toàn quốc" stateKey="tinHocTreNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Huy chương Vàng/Bạc/Đồng Olympic 30/4" stateKey="olympic" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Huy chương Thể thao (Cấp Tỉnh trở lên, 4 năm)" stateKey="theThao" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Nhất/Nhì/Ba Startup Runway DUE" stateKey="startupDueNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đã tham gia cuộc thi “Đường lên đỉnh Olympia” trên Đài truyền hình Việt Nam." stateKey="olympia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích kỳ thi học sinh giỏi cấp Quốc gia, hoặc giải Nhất, Nhì, Ba kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố." stateKey="hsgQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba, Tư cuộc thi khoa học, kỹ thuật cấp quốc gia; hoặc đạt giải Nhất, Nhì, Ba cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố." stateKey="khktQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt danh hiệu “Học sinh Xuất sắc” cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsXuatSac" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt Huy chương Vàng, Bạc, Đồng kỳ thi Olympic truyền thống 30/4." stateKey="olympic" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt Huy chương Vàng, Bạc, Đồng kỳ thi chọn học sinh giỏi các trường THPT chuyên khu vực Duyên hải và Đồng bằng Bắc bộ." stateKey="hsgDuyenHai" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Được công nhận là Vận động viên Kiện tướng Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng cấp Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng tại Hội khỏe Phù Đổng từ cấp tỉnh, thành phố trở lên (Thời gian đạt giải không quá 4 năm)." stateKey="theThao" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba cuộc thi Startup Runway do Trường Đại học Kinh tế - ĐHĐN tổ chức." stateKey="startupDueNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                       </div>
                     </div>
                     {/* Cột 1.0 điểm */}
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/30">
                       <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1,0 điểm cho mỗi thành tích sau</h4>
                       <div className="space-y-1">
-                        <CheckboxItem label="Giải Khuyến khích kỳ thi Học sinh giỏi cấp Tỉnh/Thành phố" stateKey="hsgKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Tư Khoa học kỹ thuật cấp Tỉnh/Thành phố" stateKey="khktKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Học sinh Giỏi 3 năm (hoặc Giỏi + Xuất sắc)" stateKey="hsGioi" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Khuyến khích cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” của Bộ GD&ĐT" stateKey="khoiNghiepKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Khuyến khích Cuộc thi Tin học trẻ" stateKey="tinHocTreKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Giải Khuyến khích Startup Runway DUE" stateKey="startupDueKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố." stateKey="hsgKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Tư cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố." stateKey="khktKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt danh hiệu “Học sinh Giỏi” (hoặc kết hợp danh hiệu “Học sinh Xuất sắc” và “Học sinh Giỏi”) cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsGioi" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích Vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích cuộc thi Startup Runway do Trường Đại học Kinh tế - ĐHĐN tổ chức." stateKey="startupDueKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                       </div>
                     </div>
                   </div>
