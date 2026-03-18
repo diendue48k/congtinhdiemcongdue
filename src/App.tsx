@@ -191,28 +191,28 @@ export default function App() {
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/30">
                       <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1,5 điểm cho mỗi thành tích sau</h4>
                       <div className="space-y-1">
-                        <CheckboxItem label="Thí sinh đã tham gia cuộc thi “Đường lên đỉnh Olympia” trên Đài truyền hình Việt Nam." stateKey="olympia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích kỳ thi học sinh giỏi cấp Quốc gia, hoặc giải Nhất, Nhì, Ba kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố trực thuộc trung ương." stateKey="hsgQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Nhất, Nhì, Ba, Tư cuộc thi khoa học, kỹ thuật cấp quốc gia; hoặc đạt giải Nhất, Nhì, Ba cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố trực thuộc trung ương." stateKey="khktQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt danh hiệu “Học sinh Xuất sắc” cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsXuatSac" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Nhất, Nhì, Ba cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Nhất, Nhì, Ba vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt Huy chương Vàng, Bạc, Đồng kỳ thi Olympic truyền thống 30/4." stateKey="olympic" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt Huy chương Vàng, Bạc, Đồng kỳ thi chọn học sinh giỏi các trường THPT chuyên khu vực Duyên hải và Đồng bằng Bắc bộ." stateKey="hsgDuyenHai" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh được công nhận là Vận động viên Kiện tướng Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng cấp Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng tại Hội khỏe Phù Đổng từ cấp tỉnh, thành phố trực thuộc Trung ương trở lên (Thời gian đạt giải không quá 4 năm)." stateKey="theThao" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Nhất, Nhì, Ba cuộc thi Startup Runway do Trường Đại học Kinh tế - Đại học Đà Nẵng tổ chức." stateKey="startupDueNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đã tham gia cuộc thi “Đường lên đỉnh Olympia” trên Đài truyền hình Việt Nam." stateKey="olympia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích kỳ thi học sinh giỏi cấp Quốc gia, hoặc giải Nhất, Nhì, Ba kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố." stateKey="hsgQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba, Tư cuộc thi khoa học, kỹ thuật cấp quốc gia; hoặc đạt giải Nhất, Nhì, Ba cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố." stateKey="khktQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt danh hiệu “Học sinh Xuất sắc” cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsXuatSac" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt Huy chương Vàng, Bạc, Đồng kỳ thi Olympic truyền thống 30/4." stateKey="olympic" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt Huy chương Vàng, Bạc, Đồng kỳ thi chọn học sinh giỏi các trường THPT chuyên khu vực Duyên hải và Đồng bằng Bắc bộ." stateKey="hsgDuyenHai" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh được công nhận là Vận động viên Kiện tướng Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng cấp Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng tại Hội khỏe Phù Đổng từ cấp tỉnh, thành phố trở lên (Thời gian đạt giải không quá 4 năm)." stateKey="theThao" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba cuộc thi Startup Runway do Trường Đại học Kinh tế - Đại học Đà Nẵng tổ chức." stateKey="startupDueNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                       </div>
                     </div>
                     {/* Cột 1.0 điểm */}
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/30">
                       <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1,0 điểm cho mỗi thành tích sau</h4>
                       <div className="space-y-1">
-                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố trực thuộc trung ương." stateKey="hsgKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Tư cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố trực thuộc trung ương." stateKey="khktKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt danh hiệu “Học sinh Giỏi” (hoặc kết hợp danh hiệu “Học sinh Xuất sắc” và “Học sinh Giỏi”) cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsGioi" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích Vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích cuộc thi Startup Runway do Trường Đại học Kinh tế - Đại học Đà Nẵng tổ chức." stateKey="startupDueKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố." stateKey="hsgKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Tư cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố." stateKey="khktKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt danh hiệu “Học sinh Giỏi” (hoặc kết hợp danh hiệu “Học sinh Xuất sắc” và “Học sinh Giỏi”) cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsGioi" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích Vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Đạt giải Khuyến khích cuộc thi Startup Runway do Trường Đại học Kinh tế - Đại học Đà Nẵng tổ chức." stateKey="startupDueKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                       </div>
                     </div>
                   </div>
@@ -322,7 +322,7 @@ export default function App() {
           </div>
 
           {/* Result Sidebar */}
-          <div className="lg:col-span-4 xl:col-span-3 hidden lg:block">
+          <div className="lg:col-span-4 xl:col-span-3 pb-24 lg:pb-0">
             <div className="sticky top-24 space-y-6">
               <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
                 <div className="p-6 bg-gradient-to-br from-[#009A44] to-[#005A9C] text-white text-center">
