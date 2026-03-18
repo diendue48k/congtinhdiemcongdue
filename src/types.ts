@@ -14,6 +14,7 @@ export interface AppState {
   olympic: boolean;
   theThao: boolean;
   startupDueNhatNhiBa: boolean;
+  hsgDuyenHai: boolean;
 
   // Group 2 - 1.0 points
   hsgKkTinh: boolean;
@@ -24,7 +25,7 @@ export interface AppState {
   startupDueKk: boolean;
 
   // Group 3
-  tinHocQuocTe: boolean;
+  tinHocQuocTe: string;
   sat: number;
   act: number;
   ngoaiNgu: number;

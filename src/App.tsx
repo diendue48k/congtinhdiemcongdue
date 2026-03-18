@@ -58,7 +58,7 @@ export default function App() {
     khoiNghiepKk: false,
     tinHocTreKk: false,
     startupDueKk: false,
-    tinHocQuocTe: false,
+    tinHocQuocTe: '',
     sat: 0,
     act: 0,
     ngoaiNgu: 0,
@@ -84,7 +84,7 @@ export default function App() {
 
   // Group 3
   const max3_1 = state.heDaoTao === 'tieu_chuan' ? 0 : state.ngoaiNgu;
-  const max3_2 = state.tinHocQuocTe ? 1.5 : 0;
+  const max3_2 = state.tinHocQuocTe !== '' ? 1.5 : 0;
   const max3_3 = state.sat;
   const max3_4 = state.act;
 
@@ -191,28 +191,28 @@ export default function App() {
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/30">
                       <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1,5 điểm cho mỗi thành tích sau</h4>
                       <div className="space-y-1">
-                        <CheckboxItem label="Đã tham gia cuộc thi “Đường lên đỉnh Olympia” trên Đài truyền hình Việt Nam." stateKey="olympia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Khuyến khích kỳ thi học sinh giỏi cấp Quốc gia, hoặc giải Nhất, Nhì, Ba kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố." stateKey="hsgQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba, Tư cuộc thi khoa học, kỹ thuật cấp quốc gia; hoặc đạt giải Nhất, Nhì, Ba cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố." stateKey="khktQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt danh hiệu “Học sinh Xuất sắc” cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsXuatSac" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt Huy chương Vàng, Bạc, Đồng kỳ thi Olympic truyền thống 30/4." stateKey="olympic" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt Huy chương Vàng, Bạc, Đồng kỳ thi chọn học sinh giỏi các trường THPT chuyên khu vực Duyên hải và Đồng bằng Bắc bộ." stateKey="hsgDuyenHai" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Được công nhận là Vận động viên Kiện tướng Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng cấp Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng tại Hội khỏe Phù Đổng từ cấp tỉnh, thành phố trở lên (Thời gian đạt giải không quá 4 năm)." stateKey="theThao" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Nhất, Nhì, Ba cuộc thi Startup Runway do Trường Đại học Kinh tế - ĐHĐN tổ chức." stateKey="startupDueNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đã tham gia cuộc thi “Đường lên đỉnh Olympia” trên Đài truyền hình Việt Nam." stateKey="olympia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích kỳ thi học sinh giỏi cấp Quốc gia, hoặc giải Nhất, Nhì, Ba kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố trực thuộc trung ương." stateKey="hsgQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Nhất, Nhì, Ba, Tư cuộc thi khoa học, kỹ thuật cấp quốc gia; hoặc đạt giải Nhất, Nhì, Ba cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố trực thuộc trung ương." stateKey="khktQuocGia" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt danh hiệu “Học sinh Xuất sắc” cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsXuatSac" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Nhất, Nhì, Ba cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Nhất, Nhì, Ba vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt Huy chương Vàng, Bạc, Đồng kỳ thi Olympic truyền thống 30/4." stateKey="olympic" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt Huy chương Vàng, Bạc, Đồng kỳ thi chọn học sinh giỏi các trường THPT chuyên khu vực Duyên hải và Đồng bằng Bắc bộ." stateKey="hsgDuyenHai" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh được công nhận là Vận động viên Kiện tướng Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng cấp Quốc gia; hoặc đạt Huy chương Vàng, Bạc, Đồng tại Hội khỏe Phù Đổng từ cấp tỉnh, thành phố trực thuộc Trung ương trở lên (Thời gian đạt giải không quá 4 năm)." stateKey="theThao" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Nhất, Nhì, Ba cuộc thi Startup Runway do Trường Đại học Kinh tế - Đại học Đà Nẵng tổ chức." stateKey="startupDueNhatNhiBa" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                       </div>
                     </div>
                     {/* Cột 1.0 điểm */}
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/30">
                       <h4 className="text-sm font-semibold text-slate-800 mb-3">Cộng 1,0 điểm cho mỗi thành tích sau</h4>
                       <div className="space-y-1">
-                        <CheckboxItem label="Đạt giải Khuyến khích kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố." stateKey="hsgKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Tư cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố." stateKey="khktKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt danh hiệu “Học sinh Giỏi” (hoặc kết hợp danh hiệu “Học sinh Xuất sắc” và “Học sinh Giỏi”) cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsGioi" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Khuyến khích cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Khuyến khích Vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
-                        <CheckboxItem label="Đạt giải Khuyến khích cuộc thi Startup Runway do Trường Đại học Kinh tế - ĐHĐN tổ chức." stateKey="startupDueKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích kỳ thi học sinh giỏi THPT cấp tỉnh, thành phố trực thuộc trung ương." stateKey="hsgKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Tư cuộc thi khoa học, kỹ thuật cấp tỉnh, thành phố trực thuộc trung ương." stateKey="khktKkTinh" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt danh hiệu “Học sinh Giỏi” (hoặc kết hợp danh hiệu “Học sinh Xuất sắc” và “Học sinh Giỏi”) cả 03 năm học THPT (lớp 10, lớp 11 và lớp 12)." stateKey="hsGioi" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích cuộc thi “Học sinh, sinh viên với ý tưởng khởi nghiệp” do Bộ Giáo dục và Đào tạo tổ chức." stateKey="khoiNghiepKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích Vòng Chung kết Hội thi Tin học trẻ toàn quốc do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức." stateKey="tinHocTreKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
+                        <CheckboxItem label="Thí sinh đạt giải Khuyến khích cuộc thi Startup Runway do Trường Đại học Kinh tế - Đại học Đà Nẵng tổ chức." stateKey="startupDueKk" colorClass="text-[#009A44] focus:ring-[#009A44]" />
                       </div>
                     </div>
                   </div>
@@ -229,46 +229,7 @@ export default function App() {
                     </div>
                   </div>
                   
-                  <div className="border border-slate-200 rounded-lg p-4 mb-4 hover:bg-slate-50 transition-colors">
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input 
-                        type="checkbox" 
-                        className="mt-0.5 shrink-0 w-5 h-5 rounded border-slate-300 text-[#005A9C] focus:ring-[#005A9C]"
-                        checked={state.tinHocQuocTe}
-                        onChange={(e) => handleStateChange('tinHocQuocTe', e.target.checked)}
-                      />
-                      <span className="text-sm font-medium text-slate-700 leading-snug">Chứng chỉ Tin học quốc tế MOS hoặc IC3 (+1.5 điểm)</span>
-                    </label>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Chứng chỉ SAT</label>
-                      <select 
-                        className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#005A9C] outline-none"
-                        value={state.sat}
-                        onChange={(e) => handleStateChange('sat', parseFloat(e.target.value))}
-                      >
-                        <option value={0}>Không có</option>
-                        <option value={1.0}>1100 &lt;= SAT &lt; 1300 (+1.0 điểm)</option>
-                        <option value={1.5}>SAT &gt;= 1300 (+1.5 điểm)</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Chứng chỉ ACT</label>
-                      <select 
-                        className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#005A9C] outline-none"
-                        value={state.act}
-                        onChange={(e) => handleStateChange('act', parseFloat(e.target.value))}
-                      >
-                        <option value={0}>Không có</option>
-                        <option value={1.0}>22 &lt;= ACT &lt; 28 (+1.0 điểm)</option>
-                        <option value={1.5}>ACT &gt;= 28 (+1.5 điểm)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 mb-1.5">Loại hình đào tạo</label>
                       <select 
@@ -294,6 +255,48 @@ export default function App() {
                         <option value={0}>Không có</option>
                         <option value={1.0}>Bậc 3 (Ví dụ: IELTS 5.0 - 5.5) (+1.0 điểm)</option>
                         <option value={1.5}>Bậc 4 trở lên (Ví dụ: IELTS 6.0+) (+1.5 điểm)</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="mb-4 text-xs italic text-red-600">
+                    * Không cộng điểm chứng chỉ ngoại ngữ đối với loại hình đào tạo tiêu chuẩn.
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Chứng chỉ Tin học</label>
+                      <select 
+                        className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#005A9C] outline-none"
+                        value={state.tinHocQuocTe}
+                        onChange={(e) => handleStateChange('tinHocQuocTe', e.target.value)}
+                      >
+                        <option value="">Không có</option>
+                        <option value="MOS">MOS (+1.5 điểm)</option>
+                        <option value="IC3">IC3 (+1.5 điểm)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Chứng chỉ SAT</label>
+                      <select 
+                        className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#005A9C] outline-none"
+                        value={state.sat}
+                        onChange={(e) => handleStateChange('sat', parseFloat(e.target.value))}
+                      >
+                        <option value={0}>Không có</option>
+                        <option value={1.0}>1100 &lt;= SAT &lt; 1300 (+1.0 điểm)</option>
+                        <option value={1.5}>SAT &gt;= 1300 (+1.5 điểm)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1.5">Chứng chỉ ACT</label>
+                      <select 
+                        className="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-[#005A9C] outline-none"
+                        value={state.act}
+                        onChange={(e) => handleStateChange('act', parseFloat(e.target.value))}
+                      >
+                        <option value={0}>Không có</option>
+                        <option value={1.0}>22 &lt;= ACT &lt; 28 (+1.0 điểm)</option>
+                        <option value={1.5}>ACT &gt;= 28 (+1.5 điểm)</option>
                       </select>
                     </div>
                   </div>
