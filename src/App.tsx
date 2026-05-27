@@ -258,8 +258,8 @@ export default function App() {
                         onChange={(e) => handleStateChange('ngoaiNgu', parseFloat(e.target.value))}
                       >
                         <option value={0}>Không có</option>
-                        <option value={1.0}>Bậc 3 (Ví dụ: IELTS 5.0 - 5.5) (+1.0 điểm)</option>
-                        <option value={1.5}>Bậc 4 trở lên (Ví dụ: IELTS 6.0+) (+1.5 điểm)</option>
+                        <option value={1.0}>Bậc 3 (Ví dụ: IELTS 4.0 - 5.0) (+1.0 điểm)</option>
+                        <option value={1.5}>Bậc 4 trở lên (Ví dụ: IELTS 5,5) (+1.5 điểm)</option>
                       </select>
                     </div>
                   </div>
